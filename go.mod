@@ -1,4 +1,4 @@
-module github.com/tsenart/vegeta/v12
+module github.com/yutkin/vegeta/v12
 
 go 1.13
 
@@ -8,21 +8,13 @@ require (
 	github.com/c2h5oh/datasize v0.0.0-20171227191756-4eba002a5eae
 	github.com/dgryski/go-gk v0.0.0-20140819190930-201884a44051
 	github.com/dgryski/go-lttb v0.0.0-20180810165845-318fcdf10a77
-	github.com/gonum/blas v0.0.0-20181208220705-f22b278b28ac // indirect
-	github.com/gonum/diff v0.0.0-20181124234638-500114f11e71 // indirect
-	github.com/gonum/floats v0.0.0-20181209220543-c233463c7e82 // indirect
-	github.com/gonum/integrate v0.0.0-20181209220457-a422b5c0fdf2 // indirect
-	github.com/gonum/internal v0.0.0-20181124074243-f884aa714029 // indirect
-	github.com/gonum/lapack v0.0.0-20181123203213-e4cdc5a0bff9 // indirect
-	github.com/gonum/mathext v0.0.0-20181121095525-8a4bf007ea55 // indirect
-	github.com/gonum/matrix v0.0.0-20181209220409-c518dec07be9 // indirect
-	github.com/gonum/stat v0.0.0-20181125101827-41a0da705a5b // indirect
 	github.com/google/go-cmp v0.5.9
 	github.com/influxdata/tdigest v0.0.0-20180711151920-a7d76c6f093a
 	github.com/mailru/easyjson v0.7.0
 	github.com/miekg/dns v1.1.17
 	github.com/streadway/quantile v0.0.0-20220407130108-4246515d968d
 	github.com/tsenart/go-tsz v0.0.0-20180814232043-cdeb9e1e981e
+	github.com/tsenart/vegeta/v12 v12.8.4
 	golang.org/x/net v0.8.0
 	golang.org/x/sys v0.7.0 // indirect
 	google.golang.org/genproto v0.0.0-20230403163135-c38d8f061ccd // indirect
