@@ -1,4 +1,4 @@
-module github.com/yutkin/vegeta/v12
+module github.com/yutkin/vegeta
 
 replace github.com/tsenart/vegeta => ./
 

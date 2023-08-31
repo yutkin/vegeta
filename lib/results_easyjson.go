@@ -19,7 +19,7 @@ var (
 	_ easyjson.Marshaler
 )
 
-func easyjsonBd1621b8DecodeGithubComYutkinVegetaV12Lib(in *jlexer.Lexer, out *jsonResult) {
+func easyjsonBd1621b8DecodeGithubComYutkinVegetaLib(in *jlexer.Lexer, out *jsonResult) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -118,7 +118,7 @@ func easyjsonBd1621b8DecodeGithubComYutkinVegetaV12Lib(in *jlexer.Lexer, out *js
 		in.Consumed()
 	}
 }
-func easyjsonBd1621b8EncodeGithubComYutkinVegetaV12Lib(out *jwriter.Writer, in jsonResult) {
+func easyjsonBd1621b8EncodeGithubComYutkinVegetaLib(out *jwriter.Writer, in jsonResult) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -219,10 +219,10 @@ func easyjsonBd1621b8EncodeGithubComYutkinVegetaV12Lib(out *jwriter.Writer, in j
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v jsonResult) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonBd1621b8EncodeGithubComYutkinVegetaV12Lib(w, v)
+	easyjsonBd1621b8EncodeGithubComYutkinVegetaLib(w, v)
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *jsonResult) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonBd1621b8DecodeGithubComYutkinVegetaV12Lib(l, v)
+	easyjsonBd1621b8DecodeGithubComYutkinVegetaLib(l, v)
 }
