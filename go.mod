@@ -1,5 +1,7 @@
 module github.com/tsenart/vegeta/v12
 
+replace github.com/tsenart/vegeta => ./
+
 go 1.20
 
 require (
