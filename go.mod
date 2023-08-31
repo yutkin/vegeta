@@ -1,6 +1,6 @@
 module github.com/tsenart/vegeta/v12
 
-replace github.com/tsenart/vegeta/v12 v12.11.0 => github.com/yutkin/vegeta/v12 v12.0.0-20230831082536-6d6f642d56e0
+replace github.com/tsenart/vegeta/v12 v12.11.0 => github.com/yutkin/vegeta/v12 v12.0.0-20230831111946-fd56710a3462
 
 go 1.20
 
