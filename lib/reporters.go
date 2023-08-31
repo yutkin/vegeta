@@ -3,6 +3,7 @@ package vegeta
 import (
 	"encoding/json"
 	"fmt"
+	grpc_code "google.golang.org/grpc/codes"
 	"io"
 	"sort"
 	"strings"
@@ -60,8 +61,7 @@ func NewTextReporter(m *Metrics) Reporter {
 		"Latencies\t[min, mean, 50, 90, 95, 99, max]\t%s, %s, %s, %s, %s, %s, %s\n" +
 		"Bytes In\t[total, mean]\t%d, %.2f\n" +
 		"Bytes Out\t[total, mean]\t%d, %.2f\n" +
-		"Success\t[ratio]\t%.2f%%\n" +
-		"Status Codes\t[code:count]\t"
+		"Success\t[ratio]\t%.2f%%"
 
 	return func(w io.Writer) (err error) {
 		tw := tabwriter.NewWriter(w, 0, 8, 2, ' ', tabwriter.StripEscape)
@@ -91,9 +91,31 @@ func NewTextReporter(m *Metrics) Reporter {
 
 		sort.Strings(codes)
 
+		if _, err = fmt.Fprintf(tw, "\nStatus Codes\t[code:count] "); err != nil {
+			return err
+		}
 		for _, code := range codes {
 			count := m.StatusCodes[code]
 			if _, err = fmt.Fprintf(tw, "%s:%d  ", code, count); err != nil {
+				return err
+			}
+		}
+
+		grpcCodes := make([]grpc_code.Code, 0, len(m.GrpcStatusCodes))
+		for code := range m.GrpcStatusCodes {
+			grpcCodes = append(grpcCodes, code)
+		}
+
+		sort.Slice(grpcCodes, func(i, j int) bool {
+			return uint32(grpcCodes[i]) < uint32(grpcCodes[j])
+		})
+
+		if _, err = fmt.Fprintf(tw, "\ngRPC Status Codes\t[code:count] "); err != nil {
+			return err
+		}
+		for _, code := range grpcCodes {
+			count := m.GrpcStatusCodes[code]
+			if _, err = fmt.Fprintf(tw, "%s:%d  ", code.String(), count); err != nil {
 				return err
 			}
 		}
