@@ -10,6 +10,7 @@ import (
 )
 
 type GrpcAttacker struct {
+	stopOnce   sync.Once
 	conn       grpc.ClientConnInterface
 	headers    []string
 	stopch     chan struct{}
@@ -64,13 +65,16 @@ func GrpcMaxWorkers(n uint64) func(*GrpcAttacker) {
 }
 
 // Stop stops the current attack.
-func (a *GrpcAttacker) Stop() {
+func (a *GrpcAttacker) Stop() bool {
 	select {
 	case <-a.stopch:
-		return
+		return false
 	default:
-		close(a.stopch)
+		a.stopOnce.Do(func() { close(a.stopch) })
+		return true
 	}
+
+	return false
 }
 
 func (a *GrpcAttacker) Attack(tr Targeter, p Pacer, du time.Duration, name string) <-chan *Result {
