@@ -1,6 +1,6 @@
-module github.com/tsenart/vegeta/v12
+module github.com/yutkin/vegeta/v12
 
-replace github.com/tsenart/vegeta/v12 v12.11.0 => github.com/yutkin/vegeta/v12 v12.0.0-20230831111946-fd56710a3462
+replace github.com/tsenart/vegeta => ./
 
 go 1.20
 
@@ -19,6 +19,7 @@ require (
 	github.com/rs/dnscache v0.0.0-20211102005908-e0241e321417
 	github.com/streadway/quantile v0.0.0-20220407130108-4246515d968d
 	github.com/tsenart/go-tsz v0.0.0-20180814235614-0bd30b3df1c3
+	github.com/tsenart/vegeta/v12 v12.11.0
 	golang.org/x/net v0.14.0
 	google.golang.org/grpc v1.56.2
 	google.golang.org/protobuf v1.31.0
